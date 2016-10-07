@@ -1,2 +1,3 @@
 # PDS-TDM4
-# Benjamin Deregnaucourt - Samuel Moulard
+
+By Benjamin Deregnaucourt and Samuel Moulard
