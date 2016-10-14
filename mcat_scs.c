@@ -5,21 +5,29 @@
 #include <sys/stat.h>
 #include <fcntl.h>
 
-
+#define BUFFER 8388608
 void  mcat(const char *path){
 
     int nbline;
-    FILE *f;
-    f = fopen(path,"r");
+    char *buffer;
+    int fd;
 
-    while ((nbline = fgetc(f)) != EOF){
+    buffer = malloc(BUFFER);
+    fd = open(path,O_RDONLY);
 
-        fputc(nbline,stdout);
+    while ((nbline = read(fd,buffer,BUFFER))>0){
 
+        if ((write(1,buffer,BUFFER))<0){
 
-	}
+            perror("ERROR : write");
+            exit(EXIT_FAILURE);
 
-    fclose(f);
+        }
+
+    }    
+
+    free(buffer);
+    close(fd);
 }
 
 int main(int argc,char *argv[]){

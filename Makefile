@@ -4,7 +4,7 @@ CFLAGS += -D_XOPEN_SOURCE=500
 CFLAGS +=-g
 LDFLAGS  = -g
 
-TOUS:= mcat 
+TOUS:= mcat_scd mcat_lib mcat_scs
 
 tout: ${TOUS}
 
